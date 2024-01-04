@@ -8,7 +8,13 @@
     "node": ">=20.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env ENV_FILE=./src/config/env/.env.dev nodemon",
+    "prod": "cross-env ENV_FILE=./src/config/env/.env.prod nodemon",
+    "staging": "cross-env ENV_FILE=./src/config/env/.env.staging ts-node-dev --poll --respawn --transpile-only ./src/index.ts",
+    "coverage": "nyc report --reporter=json",
+    "test": "cross-env ENV_FILE=./src/config/env/.env.test mocha -r ts-node/register --timeout 5000 --colors ./tests/**/*.spec.ts",
+    "build": "tsc",
+    "start": "node ./dist/src/index.js"
   },
   "author": "Jan Libal",
   "license": "ISC",
