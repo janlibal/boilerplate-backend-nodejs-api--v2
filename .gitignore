@@ -1,0 +1,4 @@
+node_modules
+src/config/env/.env.prod
+src/config/env/.env.defaults
+dist

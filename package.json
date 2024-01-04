@@ -1,0 +1,26 @@
+{
+  "name": "boilerplate-v2",
+  "version": "2.0.0",
+  "description": "Boilerplate Node.js API",
+  "main": "index.js",
+  "engines": {
+    "npm": ">=8.13.2",
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jan Libal",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.10.6",
+    "cross-env": "^7.0.3",
+    "dotenv-extended": "^2.9.0",
+    "dotenv-parse-variables": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/dotenv-parse-variables": "^2.0.3",
+    "ts-node": "^10.9.2"
+  }
+}
