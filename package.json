@@ -15,7 +15,8 @@
     "prod": "cross-env ENV_FILE=./src/config/env/.env.prod nodemon",
     "staging": "cross-env ENV_FILE=./src/config/env/.env.staging ts-node-dev --poll --respawn --transpile-only ./src/index.ts",
     "coverage": "nyc report --reporter=json",
-    "test": "cross-env ENV_FILE=./src/config/env/.env.test mocha -r ts-node/register --timeout 5000 --colors ./tests/**/*.spec.ts",
+    "test": "cross-env ENV_FILE=./src/config/env/.env.test mocha --parallel -r ts-node/register --timeout 5000 --colors ./tests/**/*.ts",
+    "ttt": "cross-env ENV_FILE=./src/config/env/.env.test mocha --parallel -r nodemon ./tests/**/*.ts",
     "build": "tsc",
     "start": "node ./dist/src/index.js",
     "lint:check": "eslint --ext ts --report-unused-disable-directives ."
@@ -24,7 +25,6 @@
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^5.0.0",
-    "@types/node": "^20.10.6",
     "cross-env": "^7.0.3",
     "dotenv-extended": "^2.9.0",
     "dotenv-parse-variables": "^2.0.0",
@@ -54,7 +54,9 @@
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "^3.0.2",
     "pino-pretty": "^10.3.1",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "ts-mocha": "^10.0.0",
+    "ts-node-dev": "^2.0.0"
   },
   "eslintConfig": {
     "extends": [
