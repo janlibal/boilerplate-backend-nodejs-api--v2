@@ -11,6 +11,14 @@ const signOptions: SignOptions = {
 }
 
 
+
+
+async function generateAccessToken(userId: string) {
+    const payload = { userId }
+     return jwt.sign(payload, config.auth.secret, signOptions)
+}
+
+
 function hashPassword(password: string) {
     return bcrypt.hash(peperify(password), config.auth.saltRounds)
 }
@@ -26,5 +34,6 @@ function peperify(password: string) {
 
 
 export default {
-    hashPassword
+    hashPassword,
+    generateAccessToken
 }
