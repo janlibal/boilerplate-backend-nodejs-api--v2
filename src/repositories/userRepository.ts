@@ -7,6 +7,12 @@ async function findByEmail(email: string) {
     return user
 } 
 
+async function findById(id: number) {
+    let user: any
+    user = await User.query().where('id', id).first()
+    return user
+}
+
 async function saveUser(attributes:IUser) {
     let user: any
     user = await User.query().insertAndFetch(attributes)
@@ -15,5 +21,6 @@ async function saveUser(attributes:IUser) {
 
 export default {
     findByEmail,
-    saveUser
+    saveUser,
+    findById
 }
