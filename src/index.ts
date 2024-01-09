@@ -1,5 +1,6 @@
 import config from './config'
 import log from './utils/logger'
+import { close, connect } from './database'
 import createServer from './utils/server'
 
 
@@ -7,10 +8,13 @@ import createServer from './utils/server'
 export async function server(){
 
   let server: any
+  let db: any
   const port = config.server.port
 
   try {
 
+    db = connect()
+    log.debug("Database connected. ")
 
     server = createServer
     log.debug(`Server is listening on ${port}. `)
@@ -26,6 +30,12 @@ export async function server(){
       server.close()
       log.debug("Server closed")
     }
+
+    if (!db){
+      log.debug("Closing database...")
+      await close()
+      log.debug("Database closed")
+      }
 
   }
 
