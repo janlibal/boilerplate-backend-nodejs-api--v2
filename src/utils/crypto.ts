@@ -11,7 +11,9 @@ const signOptions: SignOptions = {
 }
 
 
-
+function comparePasswords(candidatePassword:string, userPassword:string) {
+    return bcrypt.compare(peperify(candidatePassword), userPassword)
+}
 
 async function generateAccessToken(userId: string) {
     const payload = { userId }
@@ -35,5 +37,6 @@ function peperify(password: string) {
 
 export default {
     hashPassword,
-    generateAccessToken
+    generateAccessToken,
+    comparePasswords
 }
