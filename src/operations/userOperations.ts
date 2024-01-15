@@ -69,9 +69,7 @@ async function login(input: IUser) {
         email: user.email,
         token,
       }
-  
-  
-  }
+    }
 
 export default { 
     create,
